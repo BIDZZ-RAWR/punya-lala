@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Digital - Ber-Pancasila dalam Keseharian</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .tab-content.active { display: block; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide { display: none; }
+        .slide.active { display: block; animation: fadeIn 0.4s; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #ef4444; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #dc2626; }
+        
+        /* Game Styles */
+        .game-option:hover { transform: scale(1.02); transition: all 0.2s; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <nav class="bg-red-600 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 font-bold text-xl flex items-center gap-2">
+                    <i class="fa-solid fa-star"></i> EduPancasila
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4" id="nav-links">
+                        <button onclick="switchTab('home')" class="nav-btn bg-red-700 hover:bg-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="home">Home</button>
+                        <button onclick="switchTab('materi')" class="nav-btn hover:bg-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="materi">Materi Utama</button>
+                        <button onclick="switchTab('visual')" class="nav-btn hover:bg-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="visual">Media Visual</button>
+                        <button onclick="switchTab('evaluasi')" class="nav-btn hover:bg-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="evaluasi">Evaluasi</button>
+                        <button onclick="switchTab('penutup')" class="nav-btn hover:bg-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="penutup">Penutup</button>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="hover:bg-red-500 p-2 rounded-md focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-red-700 pb-3 pt-2">
+            <div class="flex flex-col space-y-1 px-2">
+                <button onclick="switchTab('home'); toggleMobileMenu()" class="nav-btn text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Home</button>
+                <button onclick="switchTab('materi'); toggleMobileMenu()" class="nav-btn text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Materi Utama</button>
+                <button onclick="switchTab('visual'); toggleMobileMenu()" class="nav-btn text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Media Visual</button>
+                <button onclick="switchTab('evaluasi'); toggleMobileMenu()" class="nav-btn text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Evaluasi</button>
+                <button onclick="switchTab('penutup'); toggleMobileMenu()" class="nav-btn text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Penutup</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 min-h-screen">
+        
+        <!-- SECTION: HOME -->
+        <section id="home" class="tab-content active">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden mt-6">
+                <div class="bg-gradient-to-r from-red-600 to-red-800 p-10 md:p-20 text-center text-white">
+                    <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Ber-Pancasila dalam Keseharian di Masyarakat</h1>
+                    <p class="text-lg md:text-2xl mb-8 font-light text-red-100">Portofolio Media Pembelajaran Digital</p>
+                    <button onclick="switchTab('materi')" class="bg-white text-red-700 font-bold py-3 px-8 rounded-full hover:bg-red-50 transition shadow-lg transform hover:-translate-y-1">
+                        Mulai Belajar <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                <div class="p-8 md:p-12 bg-white text-center">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="p-6 bg-slate-50 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                            <i class="fa-solid fa-user-graduate text-3xl text-red-500 mb-4"></i>
+                            <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">Disusun Oleh</h3>
+                            <p class="text-xl font-bold text-slate-800">Nadilla Ardianti</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                            <i class="fa-solid fa-book-open text-3xl text-red-500 mb-4"></i>
+                            <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">Mata Kuliah / Kelas</h3>
+                            <p class="text-xl font-bold text-slate-800">Pendidikan Pancasila</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                            <i class="fa-solid fa-laptop-code text-3xl text-red-500 mb-4"></i>
+                            <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">Tipe Proyek</h3>
+                            <p class="text-xl font-bold text-slate-800">Portofolio Interaktif</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: MATERI -->
+        <section id="materi" class="tab-content">
+            <h2 class="text-3xl font-bold text-slate-800 mb-6 border-b-4 border-red-500 pb-2 inline-block">Materi Utama</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- PPT/Presentasi (Custom Interactive HTML Slider) -->
+                <div class="lg:col-span-2 bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-slate-800 text-white px-4 py-3 flex justify-between items-center">
+                        <div class="font-semibold"><i class="fa-solid fa-display mr-2"></i> Presentasi Pembelajaran</div>
+                        <div class="flex gap-2">
+                            <span class="text-xs bg-slate-600 px-2 py-1 rounded hidden sm:inline-block">Modul Interaktif</span>
+                            <a href="https://drive.google.com/file/d/1TX-jArwJcBFb896uKi_b35-I6g9b5zrw/view?usp=drive_link" target="_blank" class="text-xs bg-red-500 hover:bg-red-600 px-2 py-1 rounded transition text-white shadow"><i class="fa-solid fa-file-powerpoint mr-1"></i> Buka PPTX</a>
+                        </div>
+                    </div>
+                    
+                    <div class="relative bg-slate-100 flex-grow p-6 md:p-10 flex items-center justify-center min-h-[400px]">
+                        
+                        <!-- Slide 1 -->
+                        <div class="slide active text-center w-full" id="slide-1">
+                            <i class="fa-solid fa-book-tanakh text-6xl text-red-500 mb-4"></i>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-4">Pengertian Pancasila & Jati Diri Bangsa</h3>
+                            <p class="text-slate-600 leading-relaxed max-w-lg mx-auto">Pancasila adalah dasar negara dan pandangan hidup bangsa Indonesia. Pancasila tidak sekadar dihafalkan, melainkan diwujudkan dalam jati diri bangsa yang beradab, rukun, dan berkeadilan dalam kehidupan sehari-hari di masyarakat.</p>
+                        </div>
+                        
+                        <!-- Slide 2 -->
+                        <div class="slide text-center w-full" id="slide-2">
+                            <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto shadow-md mb-4">
+                                <i class="fa-solid fa-star text-4xl text-yellow-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-4">Sila Ke-1: Ketuhanan Yang Maha Esa</h3>
+                            <p class="text-slate-600 leading-relaxed max-w-lg mx-auto"><strong>Penerapan:</strong> Menghormati kebebasan beragama, saling toleransi antarumat beragama di lingkungan masyarakat, dan tidak memaksakan kepercayaan kepada orang lain.</p>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="slide text-center w-full" id="slide-3">
+                            <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto shadow-md mb-4">
+                                <i class="fa-solid fa-link text-4xl text-yellow-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-4">Sila Ke-2: Kemanusiaan yang Adil dan Beradab</h3>
+                            <p class="text-slate-600 leading-relaxed max-w-lg mx-auto"><strong>Penerapan:</strong> Saling tolong-menolong saat tetangga tertimpa musibah, tidak membeda-bedakan status sosial, dan menjunjung tinggi hak asasi manusia.</p>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="slide text-center w-full" id="slide-4">
+                            <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto shadow-md mb-4">
+                                <i class="fa-brands fa-pagelines text-4xl text-green-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-4">Sila Ke-3: Persatuan Indonesia</h3>
+                            <p class="text-slate-600 leading-relaxed max-w-lg mx-auto"><strong>Penerapan:</strong> Mengutamakan kerukunan warga, aktif dalam kegiatan gotong royong (kerja bakti), dan bangga menggunakan produk dalam negeri.</p>
+                        </div>
+
+                    </div>
+                    
+                    <!-- Slider Controls -->
+                    <div class="bg-white border-t border-slate-200 px-4 py-3 flex justify-between items-center">
+                        <button onclick="prevSlide()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded font-medium transition"><i class="fa-solid fa-chevron-left mr-1"></i> Prev</button>
+                        <span id="slide-counter" class="text-slate-500 font-semibold text-sm">Slide 1 / 4</span>
+                        <button onclick="nextSlide()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded font-medium transition">Next <i class="fa-solid fa-chevron-right ml-1"></i></button>
+                    </div>
+                </div>
+
+                <!-- Video & Animation Sidebar -->
+                <div class="flex flex-col gap-6">
+                    <!-- Video Pembelajaran -->
+                    <div class="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
+                        <div class="bg-red-600 text-white px-4 py-2 flex items-center font-semibold">
+                            <i class="fa-brands fa-youtube mr-2"></i> Video Pembelajaran
+                        </div>
+                        <div class="p-4 flex flex-col items-center">
+                            <a href="https://drive.google.com/file/d/1swKOLA2PqYPPl92V-Vt_OofX_X6l_Tdj/view?usp=drive_open&t=1.814" target="_blank" class="relative w-full rounded-lg overflow-hidden bg-slate-900 group cursor-pointer mb-4 aspect-video flex items-center justify-center block">
+                                <img src="https://placehold.co/400x225/e2e8f0/64748b?text=Thumbnail+Video" alt="Thumbnail" class="opacity-70 w-full h-full object-cover group-hover:opacity-50 transition">
+                                <i class="fa-solid fa-circle-play text-5xl text-white absolute opacity-90 group-hover:scale-125 transition-transform"></i>
+                            </a>
+                            <p class="text-sm text-center text-slate-600 mb-4">Simak video penjelasan mendalam tentang implementasi Pancasila (File tersimpan di Google Drive).</p>
+                            <a href="https://drive.google.com/file/d/1swKOLA2PqYPPl92V-Vt_OofX_X6l_Tdj/view?usp=drive_open&t=1.814" target="_blank" class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md font-medium transition shadow-sm">
+                                <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Tonton Video
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Animasi Edukasi -->
+                    <div class="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
+                        <div class="bg-purple-600 text-white px-4 py-2 flex items-center font-semibold">
+                            <i class="fa-solid fa-film mr-2"></i> Animasi Edukasi
+                        </div>
+                        <div class="p-4">
+                            <div class="w-full h-32 bg-purple-100 rounded-lg flex items-center justify-center border border-purple-200 mb-3 relative overflow-hidden">
+                                <!-- Simple CSS Animation Simulation -->
+                                <i class="fa-solid fa-child-reaching text-4xl text-purple-500 absolute animate-bounce"></i>
+                            </div>
+                            <p class="text-sm text-slate-600 text-center">Cuplikan animasi "Gotong Royong di Kampungku".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: MEDIA VISUAL -->
+        <section id="visual" class="tab-content">
+            <div class="flex justify-between items-end mb-6 border-b-4 border-red-500 pb-2">
+                <h2 class="text-3xl font-bold text-slate-800">Media Visual Strukural</h2>
+            </div>
+            
+            <!-- Grid for Mind Map and Info/Posters -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                
+                <!-- Mind Map -->
+                <div class="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="px-5 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h3 class="font-bold text-lg text-slate-800"><i class="fa-solid fa-sitemap text-blue-500 mr-2"></i> Mind Map Pembelajaran</h3>
+                        <a href="https://mm.tt/map/3980613695?t=viHOGA29GI" target="_blank" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded hover:bg-blue-200">Full Screen</a>
+                    </div>
+                    <div class="flex-grow p-0 h-[400px]">
+                        <!-- MindMeister Embed -->
+                        <iframe src="https://mm.tt/map/3980613695?t=viHOGA29GI" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Poster & Infografis -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white rounded-xl shadow border border-slate-200 overflow-hidden group">
+                        <a href="https://drive.google.com/file/d/1o6DiimULBCVPvxWszqXrrqODlCR2-KI3/view?usp=drive_link" target="_blank" class="block h-48 bg-slate-200 relative overflow-hidden">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center bg-red-50 group-hover:bg-red-100 transition">
+                                <i class="fa-solid fa-image text-5xl text-red-400 mb-2"></i>
+                                <span class="text-xs font-bold text-red-600 bg-white px-2 py-1 rounded-full shadow-sm">Lihat Infografis</span>
+                            </div>
+                        </a>
+                        <div class="p-3 bg-white">
+                            <h4 class="font-bold text-sm text-slate-800 mb-1">Poster & Infografis</h4>
+                            <p class="text-xs text-slate-500">Buka file resolusi tinggi.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow border border-slate-200 overflow-hidden group">
+                        <a href="https://drive.google.com/drive/folders/17DRbIlM0dtDauu0jDw6f0pEehnlkyqNa?usp=sharing" target="_blank" class="block h-48 bg-slate-200 relative overflow-hidden">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center bg-blue-50 group-hover:bg-blue-100 transition">
+                                <i class="fa-solid fa-file-image text-5xl text-blue-400 mb-2"></i>
+                                <span class="text-xs font-bold text-blue-600 bg-white px-2 py-1 rounded-full shadow-sm">Lihat di GDrive</span>
+                            </div>
+                        </a>
+                        <div class="p-3 bg-white">
+                            <h4 class="font-bold text-sm text-slate-800 mb-1">Materi Visual Lainnya</h4>
+                            <p class="text-xs text-slate-500">Kumpulan ilustrasi penerapan sila.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Komik Section -->
+            <h3 class="text-2xl font-bold text-slate-800 mb-4 mt-10"><i class="fa-solid fa-book-open-reader text-red-500 mr-2"></i> Komik Edukasi</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Komik 1 -->
+                <div class="bg-white rounded-xl shadow border border-slate-200 p-4 flex gap-4 items-center">
+                    <div class="w-24 h-32 bg-yellow-100 rounded-md flex-shrink-0 border-2 border-slate-800 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 border-4 border-white"></div>
+                        <i class="fa-solid fa-comments text-3xl text-yellow-500"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded mb-2 inline-block">Seri 1</span>
+                        <h4 class="font-bold text-lg text-slate-800">Belajar Pancasila di Sekolah</h4>
+                        <p class="text-sm text-slate-600 mt-1">Mengisahkan keseharian murid SD mempraktikkan musyawarah (Sila 4) saat memilih ketua kelas.</p>
+                        <a href="https://drive.google.com/file/d/1kshBzlfuF5Qknt1DfpIVqv4RRuvITv0F/view?usp=drive_link" target="_blank" class="mt-3 text-sm text-red-600 font-semibold hover:text-red-800 inline-block">Baca Komik 1 <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Komik 2 -->
+                <div class="bg-white rounded-xl shadow border border-slate-200 p-4 flex gap-4 items-center">
+                    <div class="w-24 h-32 bg-slate-800 rounded-md flex-shrink-0 border-2 border-slate-800 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 border-4 border-white"></div>
+                        <i class="fa-solid fa-bolt text-3xl text-red-500"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold bg-purple-100 text-purple-700 px-2 py-1 rounded mb-2 inline-block">Seri 2</span>
+                        <h4 class="font-bold text-lg text-slate-800">Saat Nilai Pancasila Mulai Dilupakan</h4>
+                        <p class="text-sm text-slate-600 mt-1">Konflik yang timbul di masyarakat karena hilangnya rasa keadilan dan cara menyelesaikannya.</p>
+                        <a href="https://drive.google.com/file/d/1Jv5qXV0ZjZuPd7PFf-V3LOm6rBCxma1E/view?usp=drive_link" target="_blank" class="mt-3 text-sm text-red-600 font-semibold hover:text-red-800 inline-block">Baca Komik 2 <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: EVALUASI -->
+        <section id="evaluasi" class="tab-content">
+            <h2 class="text-3xl font-bold text-slate-800 mb-6 border-b-4 border-red-500 pb-2 inline-block">Evaluasi Pembelajaran</h2>
+            <p class="text-slate-600 mb-8 max-w-2xl">Uji pemahaman Anda tentang materi Ber-Pancasila melalui Kuis Interaktif dan Mini-Game seru di bawah ini!</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- External Quiz Embed -->
+                <div class="bg-white rounded-xl shadow-lg border border-slate-200 flex flex-col h-[500px]">
+                    <div class="px-5 py-4 border-b border-slate-100 flex justify-between items-center bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-t-xl">
+                        <h3 class="font-bold text-lg"><i class="fa-solid fa-clipboard-question mr-2"></i> Kuis Interaktif (Wayground)</h3>
+                    </div>
+                    <div class="p-6 flex flex-col items-center justify-center flex-grow text-center">
+                        <div class="bg-blue-50 w-24 h-24 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-laptop-file text-4xl text-blue-500"></i>
+                        </div>
+                        <h4 class="font-bold text-xl text-slate-800 mb-2">Siap untuk Ujian?</h4>
+                        <p class="text-sm text-slate-500 mb-6 px-4">Kuis ini diselenggarakan menggunakan platform Wayground. Klik tombol di bawah ini untuk membuka dan memulai sesi kuis Anda.</p>
+                        <a href="https://wayground.com/join/quiz/69c5f4e469e85c34ea429ce8/start?studentShare=true" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-md transition transform hover:-translate-y-1">
+                            Mulai Kuis Wayground <i class="fa-solid fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Internal Custom JavaScript Game -->
+                <div class="bg-white rounded-xl shadow-lg border border-slate-200 flex flex-col h-[500px]">
+                    <div class="px-5 py-4 border-b border-slate-100 flex justify-between items-center bg-gradient-to-r from-green-500 to-green-700 text-white rounded-t-xl">
+                        <h3 class="font-bold text-lg"><i class="fa-solid fa-gamepad mr-2"></i> Mini Game: Tebak Sila</h3>
+                        <span id="game-score" class="bg-white text-green-700 text-xs font-bold px-2 py-1 rounded">Skor: 0</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow relative bg-slate-50 rounded-b-xl overflow-hidden" id="game-container">
+                        
+                        <!-- Game Intro -->
+                        <div id="game-intro" class="absolute inset-0 bg-white flex flex-col items-center justify-center p-6 text-center z-10 transition-opacity">
+                            <i class="fa-solid fa-puzzle-piece text-5xl text-green-500 mb-4"></i>
+                            <h4 class="font-bold text-xl text-slate-800 mb-2">Tebak Pengamalan Sila</h4>
+                            <p class="text-sm text-slate-600 mb-6">Baca situasi yang diberikan dan pilih sila keberapa yang paling tepat sesuai dengan situasi tersebut!</p>
+                            <button onclick="startGame()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full shadow-md transition">Mulai Main</button>
+                        </div>
+
+                        <!-- Game Play Area -->
+                        <div id="game-play" class="hidden flex-col h-full">
+                            <div class="mb-4 text-center">
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pertanyaan <span id="q-current">1</span>/5</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200 mb-6 text-center min-h-[100px] flex items-center justify-center">
+                                <p id="game-question" class="text-lg font-medium text-slate-800">Memilih ketua RT melalui musyawarah warga.</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-3 mt-auto">
+                                <button onclick="checkAnswer(1)" class="game-option bg-white border-2 border-red-100 hover:border-red-500 hover:bg-red-50 text-slate-700 py-3 rounded-lg font-bold transition flex flex-col items-center">
+                                    <i class="fa-solid fa-star text-yellow-500 mb-1"></i> Sila 1
+                                </button>
+                                <button onclick="checkAnswer(2)" class="game-option bg-white border-2 border-red-100 hover:border-red-500 hover:bg-red-50 text-slate-700 py-3 rounded-lg font-bold transition flex flex-col items-center">
+                                    <i class="fa-solid fa-link text-yellow-500 mb-1"></i> Sila 2
+                                </button>
+                                <button onclick="checkAnswer(3)" class="game-option bg-white border-2 border-red-100 hover:border-red-500 hover:bg-red-50 text-slate-700 py-3 rounded-lg font-bold transition flex flex-col items-center">
+                                    <i class="fa-brands fa-pagelines text-green-600 mb-1"></i> Sila 3
+                                </button>
+                                <button onclick="checkAnswer(4)" class="game-option bg-white border-2 border-red-100 hover:border-red-500 hover:bg-red-50 text-slate-700 py-3 rounded-lg font-bold transition flex flex-col items-center">
+                                    <i class="fa-solid fa-users text-slate-800 mb-1"></i> Sila 4
+                                </button>
+                                <button onclick="checkAnswer(5)" class="game-option col-span-2 bg-white border-2 border-red-100 hover:border-red-500 hover:bg-red-50 text-slate-700 py-3 rounded-lg font-bold transition flex flex-col items-center">
+                                    <i class="fa-solid fa-wheat-awn text-yellow-600 mb-1"></i> Sila 5
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Custom Game Feedback Alert -->
+                        <div id="game-feedback" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-6 py-4 rounded-xl shadow-2xl border-2 border-green-500 z-20 text-center animate-bounce">
+                            <i class="fa-solid fa-check-circle text-4xl text-green-500 mb-2"></i>
+                            <h4 class="font-bold text-xl text-slate-800">Benar!</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: PENUTUP -->
+        <section id="penutup" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Kesimpulan & Daftar Pustaka -->
+                <div class="md:col-span-2 flex flex-col gap-8">
+                    <!-- Kesimpulan -->
+                    <div class="bg-white rounded-xl shadow-md p-8 border-l-4 border-red-600">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-4"><i class="fa-solid fa-flag-checkered text-red-500 mr-2"></i> Kesimpulan Proyek "Saya Ber-Pancasila"</h2>
+                        <p class="text-slate-600 leading-relaxed mb-4">
+                            Mengamalkan Pancasila bukanlah sekadar kewajiban menghafal teori, tetapi aksi nyata dalam keseharian. Mulai dari lingkup terkecil seperti keluarga, meluas ke sekolah, hingga masyarakat. Melalui portofolio <strong>"Saya Ber-Pancasila"</strong> ini, diharapkan siswa tidak hanya tahu nilai-nilai luhur, tapi mampu mendemonstrasikan toleransi (Sila 1), rasa kemanusiaan (Sila 2), kerukunan (Sila 3), kebiasaan musyawarah (Sila 4), dan berbuat adil (Sila 5).
+                        </p>
+                        <p class="text-slate-600 leading-relaxed font-semibold">
+                            "Pancasila hidup karena diamalkan, bukan sekadar dibicarakan."
+                        </p>
+                    </div>
+
+                    <!-- Daftar Pustaka -->
+                    <div class="bg-white rounded-xl shadow-md p-8">
+                        <h3 class="text-xl font-bold text-slate-800 mb-4"><i class="fa-solid fa-book text-slate-500 mr-2"></i> Daftar Pustaka</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-sm text-slate-600">
+                            <li>BPIP Republik Indonesia. (2022). <em>Modul Pembinaan Ideologi Pancasila bagi Generasi Muda</em>. Jakarta: BPIP.</li>
+                            <li>Kementerian Pendidikan dan Kebudayaan RI. (2021). <em>Pendidikan Pancasila dan Kewarganegaraan Kelas X</em>. Jakarta: Pusat Kurikulum dan Perbukuan.</li>
+                            <li>Ardianti, Nadilla. (2026). <em>Rancangan Media Pembelajaran Digital Terintegrasi</em>. Dokumen Internal.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Profil Card -->
+                <div class="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden text-center flex flex-col h-fit">
+                    <div class="h-32 bg-gradient-to-br from-red-500 to-red-700"></div>
+                    <div class="px-6 pb-6 relative">
+                        <!-- Profile Image Placeholder -->
+                        <div class="w-24 h-24 bg-white rounded-full mx-auto -mt-12 mb-4 border-4 border-white shadow flex items-center justify-center overflow-hidden">
+                            <img src="https://placehold.co/150x150/e2e8f0/64748b?text=NA" alt="Foto Profil" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800">Nadilla Ardianti</h3>
+                        <p class="text-sm text-red-600 font-medium mb-4">Penyusun Portofolio</p>
+                        <div class="w-full h-px bg-slate-200 mb-4"></div>
+                        <p class="text-sm text-slate-500 mb-4">Mahasiswi Pendidikan yang bersemangat mengembangkan media pembelajaran interaktif untuk meningkatkan minat belajar siswa pada materi Pancasila.</p>
+                        <div class="flex justify-center gap-3">
+                            <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-red-100 hover:text-red-600 transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-red-100 hover:text-red-600 transition"><i class="fa-regular fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-sm">
+        <p>&copy; 2026 Portofolio Pembelajaran Digital - Nadilla Ardianti. Dibuat untuk tujuan edukasi.</p>
+    </footer>
+
+    <script>
+        // --- 1. Tab Navigation Logic ---
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active style from buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-red-700');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            // Add active style to matching buttons
+            document.querySelectorAll(`.nav-btn[data-target="${tabId}"]`).forEach(btn => {
+                btn.classList.add('bg-red-700');
+            });
+            
+            window.scrollTo(0, 0); // Scroll to top
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // --- 2. PPT Slider Logic ---
+        let currentSlide = 1;
+        const totalSlides = 4;
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.getElementById(`slide-${n}`).classList.add('active');
+            document.getElementById('slide-counter').innerText = `Slide ${n} / ${totalSlides}`;
+        }
+
+        function nextSlide() {
+            currentSlide = currentSlide < totalSlides ? currentSlide + 1 : 1;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = currentSlide > 1 ? currentSlide - 1 : totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // --- 3. Mini Game Logic (Tebak Sila) ---
+        const gameQuestions = [
+            { q: "Berdoa sebelum memulai pelajaran di kelas.", ans: 1 },
+            { q: "Membantu nenek menyeberang jalan raya.", ans: 2 },
+            { q: "Menggunakan produk buatan dalam negeri (sepatu lokal).", ans: 3 },
+            { q: "Memilih ketua kelas melalui voting bersama.", ans: 4 },
+            { q: "Membagi jadwal piket kelas secara adil dan merata.", ans: 5 }
+        ];
+        
+        let currentQIndex = 0;
+        let score = 0;
+
+        function startGame() {
+            document.getElementById('game-intro').classList.add('hidden');
+            document.getElementById('game-play').classList.remove('hidden');
+            document.getElementById('game-play').classList.add('flex');
+            currentQIndex = 0;
+            score = 0;
+            updateScore();
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if(currentQIndex < gameQuestions.length) {
+                document.getElementById('q-current').innerText = currentQIndex + 1;
+                document.getElementById('game-question').innerText = gameQuestions[currentQIndex].q;
+            } else {
+                endGame();
+            }
+        }
+
+        function checkAnswer(selectedSila) {
+            const correctSila = gameQuestions[currentQIndex].ans;
+            const feedbackBox = document.getElementById('game-feedback');
+            
+            if(selectedSila === correctSila) {
+                // Correct
+                score += 20;
+                updateScore();
+                showFeedback("Benar!", "text-green-500", "fa-check-circle", "border-green-500");
+            } else {
+                // Incorrect
+                showFeedback(`Salah! Itu Sila ${correctSila}`, "text-red-500", "fa-times-circle", "border-red-500");
+            }
+
+            currentQIndex++;
+            
+            // Wait brief moment before next question to show feedback
+            setTimeout(() => {
+                feedbackBox.classList.add('hidden');
+                loadQuestion();
+            }, 1500);
+        }
+
+        function showFeedback(text, textColor, icon, borderColor) {
+            const fb = document.getElementById('game-feedback');
+            fb.className = `absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-6 py-4 rounded-xl shadow-2xl border-2 z-20 text-center animate-bounce ${borderColor}`;
+            fb.innerHTML = `
+                <i class="fa-solid ${icon} text-4xl ${textColor} mb-2"></i>
+                <h4 class="font-bold text-xl text-slate-800">${text}</h4>
+            `;
+            fb.classList.remove('hidden');
+        }
+
+        function updateScore() {
+            document.getElementById('game-score').innerText = `Skor: ${score}`;
+        }
+
+        function endGame() {
+            document.getElementById('game-play').classList.add('hidden');
+            document.getElementById('game-play').classList.remove('flex');
+            const intro = document.getElementById('game-intro');
+            
+            intro.innerHTML = `
+                <i class="fa-solid fa-trophy text-5xl text-yellow-500 mb-4"></i>
+                <h4 class="font-bold text-2xl text-slate-800 mb-2">Game Selesai!</h4>
+                <p class="text-lg text-slate-600 mb-6">Skor akhir Anda: <span class="font-bold text-green-600">${score}</span> / 100</p>
+                <button onclick="startGame()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full shadow-md transition"><i class="fa-solid fa-rotate-right mr-2"></i> Main Lagi</button>
+            `;
+            intro.classList.remove('hidden');
+        }
+
+        // Initialize first state
+        switchTab('home');
+    </script>
+</body>
+</html>
