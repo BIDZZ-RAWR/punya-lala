@@ -9,17 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
+        html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
-        .tab-content.active { display: block; }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
 
         .slide { display: none; }
-        .slide.active { display: block; animation: fadeIn 0.4s; }
+        .slide.active { display: block; }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
@@ -37,15 +31,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0 font-bold text-xl flex items-center gap-2">
-                    <i class="fa-solid fa-star"></i> EduPancasila
+                    <i class="fa-solid fa-star"></i> Pendidikan Pancasila Kelas XII
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4" id="nav-links">
-                        <button onclick="switchTab('home')" class="nav-btn bg-red-700 hover:bg-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="home"><i class="fa-solid fa-house mr-1"></i> Home</button>
-                        <button onclick="switchTab('materi')" class="nav-btn hover:bg-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="materi"><i class="fa-solid fa-book-open mr-1"></i> Materi Utama</button>
-                        <button onclick="switchTab('visual')" class="nav-btn hover:bg-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="visual"><i class="fa-solid fa-photo-film mr-1"></i> Media Visual</button>
-                        <button onclick="switchTab('evaluasi')" class="nav-btn hover:bg-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="evaluasi"><i class="fa-solid fa-clipboard-check mr-1"></i> Evaluasi</button>
-                        <button onclick="switchTab('penutup')" class="nav-btn hover:bg-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="penutup"><i class="fa-solid fa-flag-checkered mr-1"></i> Penutup</button>
+                        <a href="#home" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-red-500"><i class="fa-solid fa-house mr-1"></i> Home</a>
+                        <a href="#materi" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-red-500"><i class="fa-solid fa-book-open mr-1"></i> Materi Utama</a>
+                        <a href="#visual" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-red-500"><i class="fa-solid fa-photo-film mr-1"></i> Media Visual</a>
+                        <a href="#evaluasi" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-red-500"><i class="fa-solid fa-clipboard-check mr-1"></i> Evaluasi</a>
+                        <a href="#penutup" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-red-500"><i class="fa-solid fa-flag-checkered mr-1"></i> Penutup</a>
                     </div>
                 </div>
                 <!-- Mobile menu button -->
@@ -59,11 +53,11 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-red-700 pb-3 pt-2">
             <div class="flex flex-col space-y-1 px-2">
-                <button onclick="switchTab('home'); toggleMobileMenu()" class="nav-btn text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500"><i class="fa-solid fa-house mr-2"></i> Home</button>
-                <button onclick="switchTab('materi'); toggleMobileMenu()" class="nav-btn text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500"><i class="fa-solid fa-book-open mr-2"></i> Materi Utama</button>
-                <button onclick="switchTab('visual'); toggleMobileMenu()" class="nav-btn text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500"><i class="fa-solid fa-photo-film mr-2"></i> Media Visual</button>
-                <button onclick="switchTab('evaluasi'); toggleMobileMenu()" class="nav-btn text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500"><i class="fa-solid fa-clipboard-check mr-2"></i> Evaluasi</button>
-                <button onclick="switchTab('penutup'); toggleMobileMenu()" class="nav-btn text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500"><i class="fa-solid fa-flag-checkered mr-2"></i> Penutup</button>
+                <a href="#home" onclick="toggleMobileMenu()" class="nav-link text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500 block"><i class="fa-solid fa-house mr-2"></i> Home</a>
+                <a href="#materi" onclick="toggleMobileMenu()" class="nav-link text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500 block"><i class="fa-solid fa-book-open mr-2"></i> Materi Utama</a>
+                <a href="#visual" onclick="toggleMobileMenu()" class="nav-link text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500 block"><i class="fa-solid fa-photo-film mr-2"></i> Media Visual</a>
+                <a href="#evaluasi" onclick="toggleMobileMenu()" class="nav-link text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500 block"><i class="fa-solid fa-clipboard-check mr-2"></i> Evaluasi</a>
+                <a href="#penutup" onclick="toggleMobileMenu()" class="nav-link text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500 block"><i class="fa-solid fa-flag-checkered mr-2"></i> Penutup</a>
             </div>
         </div>
     </nav>
@@ -71,14 +65,14 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 min-h-screen">
         
         <!-- SECTION: HOME -->
-        <section id="home" class="tab-content active">
+        <section id="home" class="py-16" style="scroll-margin-top: 80px;">
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden mt-6">
                 <div class="bg-gradient-to-r from-red-600 to-red-800 p-10 md:p-20 text-center text-white">
                     <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Ber-Pancasila dalam Keseharian di Masyarakat</h1>
                     <p class="text-lg md:text-2xl mb-8 font-light text-red-100">Portofolio Media Pembelajaran Digital</p>
-                    <button onclick="switchTab('materi')" class="bg-white text-red-700 font-bold py-3 px-8 rounded-full hover:bg-red-50 transition shadow-lg transform hover:-translate-y-1">
+                    <a href="#materi" class="bg-white text-red-700 font-bold py-3 px-8 rounded-full hover:bg-red-50 transition shadow-lg transform hover:-translate-y-1 inline-block">
                         Mulai Belajar <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </button>
+                    </a>
                 </div>
                 <div class="p-8 md:p-12 bg-white text-center">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -218,8 +212,10 @@
             </div>
         </section>
 
+        <div class="border-t-4 border-red-100 my-4"></div>
+
         <!-- SECTION: MATERI -->
-        <section id="materi" class="tab-content">
+        <section id="materi" class="py-16" style="scroll-margin-top: 80px;">
             <h2 class="text-3xl font-bold text-slate-800 mb-6 border-b-4 border-red-500 pb-2 inline-block">Materi Utama</h2>
             
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -255,8 +251,10 @@
             </div>
         </section>
 
+        <div class="border-t-4 border-red-100 my-4"></div>
+
         <!-- SECTION: MEDIA VISUAL -->
-        <section id="visual" class="tab-content">
+        <section id="visual" class="py-16" style="scroll-margin-top: 80px;">
             <div class="flex justify-between items-end mb-6 border-b-4 border-red-500 pb-2">
                 <h2 class="text-3xl font-bold text-slate-800">Media Visual Strukural</h2>
             </div>
@@ -413,8 +411,10 @@
             </div>
         </section>
 
+        <div class="border-t-4 border-red-100 my-4"></div>
+
         <!-- SECTION: EVALUASI -->
-        <section id="evaluasi" class="tab-content">
+        <section id="evaluasi" class="py-16" style="scroll-margin-top: 80px;">
             <h2 class="text-3xl font-bold text-slate-800 mb-6 border-b-4 border-red-500 pb-2 inline-block">Evaluasi Pembelajaran</h2>
             <p class="text-slate-600 mb-8 max-w-2xl">Uji pemahaman Anda tentang materi Ber-Pancasila melalui Kuis Interaktif dan Mini-Game seru di bawah ini!</p>
 
@@ -490,8 +490,10 @@
             </div>
         </section>
 
+        <div class="border-t-4 border-red-100 my-4"></div>
+
         <!-- SECTION: PENUTUP -->
-        <section id="penutup" class="tab-content">
+        <section id="penutup" class="py-16" style="scroll-margin-top: 80px;">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                 <!-- Kesimpulan & Daftar Pustaka -->
@@ -548,54 +550,30 @@
     </footer>
 
     <script>
-        // --- 1. Tab Navigation Logic ---
-        function switchTab(tabId) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            // Remove active style from buttons
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('bg-red-700');
-            });
-            
-            // Show selected tab
-            document.getElementById(tabId).classList.add('active');
-            // Add active style to matching buttons
-            document.querySelectorAll(`.nav-btn[data-target="${tabId}"]`).forEach(btn => {
-                btn.classList.add('bg-red-700');
-            });
-            
-            window.scrollTo(0, 0); // Scroll to top
-        }
-
         // Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
 
-        // --- 2. PPT Slider Logic ---
-        let currentSlide = 1;
-        const totalSlides = 4;
+        // Highlight nav link aktif saat scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-        function showSlide(n) {
-            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
-            document.getElementById(`slide-${n}`).classList.add('active');
-            document.getElementById('slide-counter').innerText = `Slide ${n} / ${totalSlides}`;
-        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('bg-red-700');
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.classList.add('bg-red-700');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
 
-        function nextSlide() {
-            currentSlide = currentSlide < totalSlides ? currentSlide + 1 : 1;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = currentSlide > 1 ? currentSlide - 1 : totalSlides;
-            showSlide(currentSlide);
-        }
-
-        // --- 3. Mini Game Logic (Tebak Sila) ---
+        sections.forEach(section => observer.observe(section));
         const gameQuestions = [
             { q: "Berdoa sebelum memulai pelajaran di kelas.", ans: 1 },
             { q: "Membantu nenek menyeberang jalan raya.", ans: 2 },
@@ -677,8 +655,6 @@
             intro.classList.remove('hidden');
         }
 
-        // Initialize first state
-        switchTab('home');
     </script>
 </body>
 </html>
